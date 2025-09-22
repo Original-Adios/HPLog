@@ -7,6 +7,7 @@ namespace logger
     {
         std::cout << "["
                   << kLogLevelStr[static_cast<int>(msg.level)] << "] "
+                  << msg.location.file_name << ":"
                   << msg.location.func_name << ":" << msg.location.line << " "
                   << msg.message << "\n";
     }

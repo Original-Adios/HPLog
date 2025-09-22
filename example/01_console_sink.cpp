@@ -1,5 +1,6 @@
-#include "sinks/console_sink.h"
-#include "log_handle.h"
+#include "logger/sinks/console_sink.h"
+#include "logger/log_handle.h"
+#include <iostream>
 
 int main()
 {
@@ -7,7 +8,7 @@ int main()
 
     logger::LogHandle logger(console_sink);
     logger.SetLevel(logger::LogLevel::kDebug);
-    logger.Log(logger::LogLevel::kDebug, {"example.cpp", 123, __func__}, "Hello, this is an Debug log.");
+    logger.Log(logger::LogLevel::kDebug, logger::SourceLocation(__FILE__, __LINE__, __func__), "Hello, this is an Debug log.");
 
     return 0;
 }
