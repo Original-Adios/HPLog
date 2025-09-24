@@ -12,6 +12,7 @@ file(GLOB LOGGER_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/formatter/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mmap/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/context/*.cpp
 )
 
 # 编译 logger 静态库
