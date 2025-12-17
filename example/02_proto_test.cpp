@@ -26,7 +26,7 @@ int main()
         std::cerr << "serialize failed\n";
         return 1;
     }
-
+    std::cout << out << std::endl;
     // 写入文件（示例：写长度前缀 + 数据，便于流式读取）
     std::ofstream ofs("log_record.bin", std::ios::binary | std::ios::app);
     uint32_t len = static_cast<uint32_t>(out.size());
@@ -48,8 +48,8 @@ int main()
         if (parsed.ParseFromString(inbuf))
         {
             std::cout << "Parsed level=" << parsed.level()
-                      << " file=" << parsed.file_name()
-                      << " msg=" << parsed.log_info() << "\n";
+                      << "\nfile=" << parsed.file_name()
+                      << "\nmsg=" << parsed.log_info() << "\n";
         }
     }
 

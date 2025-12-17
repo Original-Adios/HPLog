@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(${CMAKE_SOURCE_DIR}/third_party/fmt/include)
 include_directories(${CMAKE_SOURCE_DIR}/third_party/zlib/include)
 include_directories(${CMAKE_SOURCE_DIR}/third_party/zstd/include)
+include_directories(${CMAKE_SOURCE_DIR}/third_party/cryptopp_cmake)
 
 # 添加子目录
 add_subdirectory(logger)
@@ -15,3 +16,4 @@ add_subdirectory(example)
 add_subdirectory(third_party/fmt)
 add_subdirectory(third_party/zlib)
 add_subdirectory(third_party/zstd/build/cmake zstd)
+add_subdirectory(third_party/cryptopp_cmake)
