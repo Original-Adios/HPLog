@@ -11,4 +11,15 @@ namespace logger
                   << msg.location.func_name << ":" << msg.location.line << " "
                   << msg.message << "\n";
     }
+
+    void ConsoleSink::SetFormatter(std::unique_ptr<Formatter> formatter)
+    {
+        // 如果你需要自定义格式，可以保存 formatter_
+        // 目前空实现即可，避免抽象类
+    }
+
+    void ConsoleSink::Flush()
+    {
+        std::cout << std::flush;
+    }
 }

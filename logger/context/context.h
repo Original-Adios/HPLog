@@ -44,7 +44,7 @@ namespace logger
 
 #define POST_TASK(runner_tag, task) EXECUTOR->PostTask(runner_tag, task)
 
-#define WAIT_TASK_IDLE(runner_tag) EXECUTOR->PostTaskAndGetResult(runner_tag, []() {})->wait()
+#define WAIT_TASK_IDLE(runner_tag) EXECUTOR->PostTaskAndGetResult(runner_tag, []() {}).wait()
 
 #define POST_REPEATED_TASK(runner_tag, task, delta, repeat_num) \
     EXECUTOR->PostRepeatedTask(runner_tag, task, delta, repeat_num)

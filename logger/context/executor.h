@@ -142,7 +142,7 @@ namespace logger
             template <typename F, typename... Args>
             auto PostTaskAndGetResult(const TaskRunnerTag &runner_tag,
                                       F &&f,
-                                      Args &&...args) -> std::shared_ptr<std::future<std::result_of_t<F(Args...)>>>
+                                      Args &&...args) -> std::future<std::result_of_t<F(Args...)>>
             {
                 ExecutorContext::TaskRunner *task_runner = executor_context_->GetTaskRunner(runner_tag);
                 auto ret = task_runner->RunRetTask(std::forward<F>(f), std::forward<Args>(args)...);

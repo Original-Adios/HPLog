@@ -13,5 +13,9 @@ namespace logger
         ~ConsoleSink() override = default;
 
         void Log(const LogMsg &msg) override;
+
+        void SetFormatter(std::unique_ptr<Formatter> formatter) override;
+
+        void Flush() override;
     };
 }

@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <unistd.h>
+#include <iostream>
 
 #include "defer.h"
 
@@ -11,6 +12,8 @@ namespace logger
 
     bool MMapAux::TryMap_(size_t capacity)
     {
+        std::cout << "zhb ****************************:" << file_path_.string() << std::endl;
+        std::cout << "zhb **************************** allocate mmap size is :" << capacity << std::endl;
         int fd = open(file_path_.string().c_str(), O_RDWR | O_CREAT, S_IRWXU);
         LOG_DEFER
         {

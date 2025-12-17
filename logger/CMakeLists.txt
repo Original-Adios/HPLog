@@ -14,6 +14,7 @@ file(GLOB LOGGER_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/mmap/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/context/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/compress/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/crypt/*.cpp
 )
 
 # 编译 logger 静态库
@@ -33,4 +34,5 @@ target_link_libraries(logger
         fmt::fmt
         zlib
         libzstd_static
+        cryptopp
 )

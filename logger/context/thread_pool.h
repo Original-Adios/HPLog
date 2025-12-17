@@ -86,6 +86,11 @@ namespace logger
                     std::lock_guard<std::mutex> lock(task_mutex_);
                     tasks_.emplace([task_ptr]()
                                    { (*task_ptr)(); });
+                    /*
+                    这里的 [task_ptr] 捕获了一个 shared_ptr 的副本（值捕获）。
+                    这意味着即使 RunRetTask 结束后局部变量 task_ptr 被销毁，
+                    队列中的 lambda 依然持有一个引用，task_ptr 指向的 packaged_task 仍然存活，不会提前释放。
+                    */
                 }
                 task_cv_.notify_one(); // 用 notify_one
                 return fut;            // move 返回 std::future
